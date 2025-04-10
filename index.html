@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Combiner</title>
+    <title>PDF Combiner & Converter</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
@@ -16,14 +16,15 @@
 
         <header class="app-header">
             <h1 class="app-title">យូថាត ៩១១</h1>
-            <p class="app-subtitle">បង្កើតឡើងសម្រាប់ចងឯកសារ PDF</p>
+            <p class="app-subtitle">បង្កើតឡើងសម្រាប់ចងឯកសារ PDF និងបំលែងឯកសារ</p>
         </header>
 
         <div class="pdf-combiner glass-effect">
             <div class="form-group">
                 <label for="file-upload">កន្លែងផ្ទុកឯកសារ</label>
                 <div class="file-input-wrapper">
-                    <input type="file" id="file-upload" class="custom-file-input" accept="application/pdf" multiple>
+                    <input type="file" id="file-upload" class="custom-file-input" 
+                        accept=".pdf,.docx,.doc,.xlsx,.xls,.pptx,.ppt,.jpg,.jpeg,.png,.gif,.bmp,.tiff" multiple>
                     <button id="select-files-btn" class="btn btn-primary">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -56,7 +57,14 @@
                     <line x1="16" y1="17" x2="8" y2="17"></line>
                     <polyline points="10 9 9 9 8 9"></polyline>
                 </svg>
-                <p class="empty-state-text">ទម្លាក់ឯកសារ PDF នៅទីនេះ ឬ ចុចដើម្បីរកឯកសារ</p>
+                <p class="empty-state-text">ទម្លាក់ឯកសារ PDF, Word, Excel, PowerPoint ឬរូបភាពនៅទីនេះ ឬ ចុចដើម្បីរកឯកសារ</p>
+                <div class="supported-formats">
+                    <span class="format-badge">PDF</span>
+                    <span class="format-badge">Word</span>
+                    <span class="format-badge">Excel</span>
+                    <span class="format-badge">PowerPoint</span>
+                    <span class="format-badge">Images</span>
+                </div>
                 <button id="empty-state-btn" class="btn btn-primary">
                     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -98,7 +106,7 @@
 
             <div id="progress-container" class="progress-container">
                 <div class="progress-header">
-                    <span class="progress-label">កំពុងចងឯកសាររួមបញ្ជូលគ្នា...</span>
+                    <span id="progress-label" class="progress-label">កំពុងចងឯកសាររួមបញ្ជូលគ្នា...</span>
                     <span id="progress-percentage" class="progress-percentage">0%</span>
                 </div>
                 <div class="progress-bar-container">
@@ -120,8 +128,11 @@
             <p>© 2025 បង្កើតដោយ យូថាត ប្រើប្រាស់សម្រាប់ចងឯកសារ.</p>
         </footer>
     </div>
-    <!-- Load pdf-lib from CDN -->
+    <!-- Load required libraries -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js"></script>
     <script src="javascript.js"></script>
 </body>
 
