@@ -209,7 +209,7 @@
   }
   
   .btn-secondary:hover {
-    background: rgba(46, 213, 115, 0.15);
+    background: rgb(0 255 10 / 60%);
     transform: translateY(-2px);
   }
   
